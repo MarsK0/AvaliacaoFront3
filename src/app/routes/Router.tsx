@@ -1,0 +1,22 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "../pages/home/Home";
+import Profile from "../pages/profile/Profile";
+import Signin from "../pages/signin/Signin";
+import Signup from "../pages/signup/SIgnup";
+import Authenticate from "../components/authenticator/Authenticator";
+
+const Router: React.FC = ()=>{
+  return(
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Authenticate page={<Home />} />} />
+        <Route path='/profile' element={<Authenticate page={<Profile />} />} />
+        <Route path='/signin' element={<Signin />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='*' element={<Authenticate page={<Home />} />} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
+
+export default Router
