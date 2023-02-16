@@ -1,5 +1,50 @@
 import styled from "styled-components"
 
+export const StyledH2 = styled.h2`
+  font-weight: bold;
+  font-size: 2.5em;
+  filter: blur(1px);
+  pointer-events: none;
+  user-select: none;
+  animation: animateSignupH2 5s linear infinite;
+
+  @keyframes animateSignupH2 {
+    0%{
+      color: #ff0000;
+    }
+    10%{
+      color: #ff8000;
+    }
+    20%{
+      color: #fff700;
+    }
+    30%{
+      color: #aaff00;
+    }
+    40%{
+      color: #2bff00;
+    }
+    50%{
+      color: #00ffa2;
+    }
+    60%{
+      color: #00ccff;
+    }
+    70%{
+      color: #002aff;
+    }
+    80%{
+      color: #7b00ff;
+    }
+    90%{
+      color: #ff00fb;
+    }
+    100%{
+      color: #ff0000;
+    }
+  }
+`
+
 export const StyledForm = styled.form`
   position: relative;
   width: 100%;
@@ -11,6 +56,7 @@ export const StyledForm = styled.form`
   align-items: center;
   justify-content: center;
   row-gap: 1.5rem;
+  padding: 0 0 2rem;
 
   &::before,
   &::after {
@@ -22,10 +68,10 @@ export const StyledForm = styled.form`
     width: calc(100% + 4px);
     height: calc(100% + 4px);
     z-index: -1;
-    animation: animate 5s linear infinite;
+    animation: animateSignupForm 5s linear infinite;
   }
 
-  @keyframes animate {
+  @keyframes animateSignupForm {
     0%{
       background: #ff0000;
     }
@@ -81,5 +127,5 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   width: 25%;
   min-width: 300px;
-  height: 400px;
+  min-height: 400px;
 `

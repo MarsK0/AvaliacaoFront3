@@ -40,10 +40,10 @@ export const Wrapper = styled.div`
     width: calc(100% + 4px);
     height: calc(100% + 4px);
     z-index: 0;
-    animation: animate 5s linear infinite;
+    animation: animateInput 5s linear infinite;
   }
 
-  @keyframes animate {
+  @keyframes animateInput {
     0%{
       background: #ff0000;
     }
@@ -84,8 +84,8 @@ export const Wrapper = styled.div`
     opacity: 0.90;
   }
 
-  & input:valid ~span,
-  & input:focus ~span {
+  & input:focus ~span,
+  & input:valid ~span {
     transform: translateX(.25rem) translateY(-1.5em);
     font-size: 0.75em;
     transition: .2s linear;
