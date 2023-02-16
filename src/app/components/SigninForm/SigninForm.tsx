@@ -4,7 +4,7 @@ const SigninForm: React.FC = () => {
   return(
     <Container>
       <Wrapper>
-        <StyledForm className="block glow">
+        <StyledForm>
           
         </StyledForm>
       </Wrapper>

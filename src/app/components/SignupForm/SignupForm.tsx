@@ -1,11 +1,12 @@
-import { StyledForm, Container,Wrapper } from "./style"
+import { StyledForm, Container, Wrapper } from "./style"
+import FormInput from "../FormInput/FormInput"
 
 const SignupForm: React.FC = () => {
   return(
     <Container>
       <Wrapper>
-        <StyledForm className="block glow">
-          
+        <StyledForm>
+          <FormInput placeholder="Username" type="text"/>
         </StyledForm>
       </Wrapper>
     </Container>
