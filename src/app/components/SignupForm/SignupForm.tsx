@@ -1,5 +1,5 @@
 import { StyledForm, Container, Wrapper, StyledH1, StyledH2 } from "./style"
-import FormInput from "../FormInput/FormInput"
+import { StyledInput, StyledSpan, InputWrapper } from '../FormInput/style'
 import NeonButton from "../NeonButton/NeonButton"
 
 const SignupForm: React.FC = () => {
@@ -11,14 +11,22 @@ const SignupForm: React.FC = () => {
         <Wrapper>
           <StyledForm>
             <StyledH2>Cadastrar</StyledH2>
-            <FormInput placeholder="Usuário" 
-                       type="text" />
-            <FormInput placeholder="URL Avatar" 
-                       type="text" />
-            <FormInput placeholder="Senha" 
-                       type="password" />
-            <FormInput placeholder="Repita a Senha" 
-                       type="password" />
+            <InputWrapper>
+              <StyledInput required type="text" />
+              <StyledSpan>{'Usuário'}</StyledSpan>
+            </InputWrapper>
+            <InputWrapper>
+              <StyledInput required type="text" />
+              <StyledSpan>{'URL Avatar'}</StyledSpan>
+            </InputWrapper>
+            <InputWrapper>
+              <StyledInput required type="password"/>
+              <StyledSpan>{'Senha'}</StyledSpan>
+            </InputWrapper>
+            <InputWrapper>
+              <StyledInput required type="password"/>
+              <StyledSpan>{'Repita a Senha'}</StyledSpan>
+            </InputWrapper>
             <NeonButton color="#fff" 
                         text="Cadastrar" />
           </StyledForm>

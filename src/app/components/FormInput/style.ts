@@ -24,7 +24,7 @@ export const StyledSpan = styled.span`
   color: #fff;
 `
 
-export const Wrapper = styled.div`
+export const InputWrapper = styled.div`
   width: 85%;
   height: 2.25rem;
   position: relative;
