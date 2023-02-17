@@ -1,5 +1,51 @@
 import styled from "styled-components"
 
+export const StyledH1 = styled.h1`
+  position: absolute;
+  font-size: 3em;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 2rem;
+  filter: blur(px);
+  animation: animateSignupH1 5s linear infinite;
+
+  @keyframes animateSignupH1 {
+    0%{
+      text-shadow: 1px 1px 10px #ff0000;
+    }
+    10%{
+      text-shadow: 1px 1px 10px #ff8000;
+    }
+    20%{
+      text-shadow: 1px 1px 10px #fff700;
+    }
+    30%{
+      text-shadow: 1px 1px 10px #aaff00;
+    }
+    40%{
+      text-shadow: 1px 1px 10px #2bff00;
+    }
+    50%{
+      text-shadow: 1px 1px 10px #00ffa2;
+    }
+    60%{
+      text-shadow: 1px 1px 10px #00ccff;
+    }
+    70%{
+      text-shadow: 1px 1px 10px #002aff;
+    }
+    80%{
+      text-shadow: 1px 1px 10px #7b00ff;
+    }
+    90%{
+      text-shadow: 1px 1px 10px #ff00fb;
+    }
+    100%{
+      text-shadow: 1px 1px 10px #ff0000;
+    }
+  }
+`
+
 export const StyledH2 = styled.h2`
   font-weight: bold;
   font-size: 2.5em;
@@ -55,7 +101,7 @@ export const StyledForm = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  row-gap: 1.5rem;
+  row-gap: 2rem;
   padding: 0 0 2rem;
 
   &::before,
@@ -127,5 +173,5 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   width: 25%;
   min-width: 300px;
-  min-height: 400px;
+  height: 400px;
 `
