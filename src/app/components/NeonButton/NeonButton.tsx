@@ -11,6 +11,7 @@ const NeonButton: React.FC<Props> = ({color, text}) => {
     position:relative;
     width: 40%;
     height: 2.25rem;
+    margin-top: 1rem;
     font-size: 1em;
     font-weight: bold;
     color: ${color};

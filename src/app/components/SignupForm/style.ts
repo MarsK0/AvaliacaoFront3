@@ -1,11 +1,9 @@
 import styled from "styled-components"
 
 export const StyledH1 = styled.h1`
-  position: absolute;
   font-size: 3em;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 2rem;
+  text-align: center;
+  margin: 2rem;
   filter: blur(px);
   animation: animateSignupH1 5s linear infinite;
 
@@ -101,7 +99,6 @@ export const StyledForm = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  row-gap: 2rem;
   padding: 0 0 2rem;
 
   &::before,
@@ -166,12 +163,18 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 `
 
 export const Wrapper = styled.div`
   width: 25%;
   min-width: 300px;
-  height: 400px;
+  min-height: 400px;
+`
+
+export const Error = styled.p`
+  font-size: 10px;
+  margin-top: .5rem;
+  color: #ff0000;
 `

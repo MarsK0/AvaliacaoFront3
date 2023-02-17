@@ -26,9 +26,10 @@ export const StyledSpan = styled.span`
 
 export const InputWrapper = styled.div`
   width: 85%;
-  height: 2.25rem;
+  height: 35px;
   position: relative;
   display: flex;
+  margin-top: 1rem;
   align-items: center;
   &::before,
   &::after {
@@ -85,7 +86,7 @@ export const InputWrapper = styled.div`
   }
 
   & input:focus ~span,
-  & input:valid ~span {
+  & input:not(:placeholder-shown) ~span {
     transform: translateX(.25rem) translateY(-1.5em);
     font-size: 0.75em;
     transition: .2s linear;

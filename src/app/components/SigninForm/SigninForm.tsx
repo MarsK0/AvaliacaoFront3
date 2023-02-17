@@ -8,7 +8,7 @@ const SigninForm: React.FC = () => {
       <StyledH1>Mamãe Mandou!</StyledH1>
       <Container>
         <Wrapper>
-          <StyledForm>
+          <StyledForm autoComplete="off">
             <StyledH2>Entrar</StyledH2>
             <InputWrapper>
               <StyledInput required type="text" />
