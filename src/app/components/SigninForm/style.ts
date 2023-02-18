@@ -1,49 +1,5 @@
 import styled from "styled-components"
 
-export const StyledH1 = styled.h1`
-  font-size: 3em;
-  text-align: center;
-  margin: 2rem;
-  filter: blur(px);
-  animation: animateSignupH1 5s linear infinite;
-
-  @keyframes animateSignupH1 {
-    0%{
-      text-shadow: 1px 1px 10px #ff0000;
-    }
-    10%{
-      text-shadow: 1px 1px 10px #ff8000;
-    }
-    20%{
-      text-shadow: 1px 1px 10px #fff700;
-    }
-    30%{
-      text-shadow: 1px 1px 10px #aaff00;
-    }
-    40%{
-      text-shadow: 1px 1px 10px #2bff00;
-    }
-    50%{
-      text-shadow: 1px 1px 10px #00ffa2;
-    }
-    60%{
-      text-shadow: 1px 1px 10px #00ccff;
-    }
-    70%{
-      text-shadow: 1px 1px 10px #002aff;
-    }
-    80%{
-      text-shadow: 1px 1px 10px #7b00ff;
-    }
-    90%{
-      text-shadow: 1px 1px 10px #ff00fb;
-    }
-    100%{
-      text-shadow: 1px 1px 10px #ff0000;
-    }
-  }
-`
-
 export const StyledH2 = styled.h2`
   font-weight: bold;
   font-size: 2.5em;
@@ -99,7 +55,6 @@ export const StyledForm = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  row-gap: 3rem;
   padding: 0 0 2rem;
   & {
     position: relative;
@@ -165,17 +120,8 @@ export const StyledForm = styled.form`
 
 `
 
-export const Container = styled.div`
-  position: absolute;
-  z-index: -100;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
-
 export const Wrapper = styled.div`
+  margin-top: 2.5rem;
   width: 25%;
   min-width: 300px;
   min-height: 400px;

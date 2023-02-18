@@ -1,8 +1,13 @@
 import SignupForm from "../../components/SignupForm/SignupForm"
+import { StyledH1 } from "../../components/StyledH1/style"
+import { Container } from "../../components/Container/style"
 
 const Signup: React.FC = () => {
   return(
-    <SignupForm />
+    <Container>
+      <StyledH1>Mamãe Mandou!</StyledH1>
+      <SignupForm />
+    </Container>
   )
 }
 

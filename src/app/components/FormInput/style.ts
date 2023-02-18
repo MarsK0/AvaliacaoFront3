@@ -29,7 +29,6 @@ export const InputWrapper = styled.div`
   height: 35px;
   position: relative;
   display: flex;
-  margin-top: 1rem;
   align-items: center;
   &::before,
   &::after {
