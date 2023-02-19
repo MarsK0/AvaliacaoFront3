@@ -49,6 +49,7 @@ export const StyledForm = styled.form`
   position: relative;
   width: 100%;
   height: 100%;
+  min-height: 400px;
   background: #333333;
   border-radius: 1.5rem;
   display: flex;
@@ -56,14 +57,7 @@ export const StyledForm = styled.form`
   align-items: center;
   justify-content: center;
   padding: 0 0 2rem;
-  & {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: #333333;
-    border-radius: 1.5rem;
-  }
-
+  
   &::before,
   &::after {
     content: '';
@@ -124,7 +118,6 @@ export const Wrapper = styled.div`
   margin-top: 2.5rem;
   width: 25%;
   min-width: 300px;
-  min-height: 400px;
 `
 
 export const Error = styled.p`

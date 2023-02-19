@@ -2,16 +2,18 @@ import styled from "styled-components";
 
 interface Props{
   color: string,
-  text: string
+  text: string,
+  mt: string,
+  width: string,
 }
 
-const NeonButton: React.FC<Props> = ({color, text}) => {
+const NeonButton: React.FC<Props> = ({color, text, mt, width}) => {
 
   const StyledButton = styled.button`
     position:relative;
-    width: 40%;
+    width: ${width};
     height: 2.25rem;
-    margin-top: 1rem;
+    margin-top: ${mt};
     font-size: 1em;
     font-weight: bold;
     color: ${color};

@@ -18,7 +18,7 @@ const SignupForm: React.FC = () => {
   
   return(
     <>
-        <Wrapper >
+        <Wrapper>
           <StyledForm onSubmit={handleSubmit(()=>{})} autoComplete="off">
             <StyledH2>Cadastrar</StyledH2>
             <InputWrapper style={{marginTop: '1rem'}}>
@@ -50,7 +50,9 @@ const SignupForm: React.FC = () => {
             </InputWrapper>
             {errors.repeatPassword?.message && <Error>{errors.repeatPassword?.message}</Error>}
             <NeonButton color="#fff" 
-                        text="Cadastrar" />
+                        text="Cadastrar"
+                        mt="1rem"
+                        width="40%"/>
             <Link to={'/signin'}
                   style={{
                     fontSize: '14px',

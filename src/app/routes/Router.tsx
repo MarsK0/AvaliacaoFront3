@@ -9,11 +9,11 @@ const Router: React.FC = ()=>{
   return(
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Authenticate page={<Home />} />} />
-        <Route path='/profile' element={<Authenticate page={<Profile />} />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/profile' element={<Profile />} />
         <Route path='/signin' element={<Signin />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path='*' element={<Authenticate page={<Home />} />} />
+        <Route path='*' element={<Home />} />
       </Routes>
     </BrowserRouter>
   )

@@ -37,7 +37,9 @@ const SigninForm: React.FC = () => {
             </InputWrapper>
             {errors.password?.message && <Error>{errors.password?.message}</Error>}
             <NeonButton color="#fff" 
-                        text="Entrar"/>
+                        text="Entrar"
+                        mt="1rem"
+                        width="40%"/>
             <Link to={'/signup'}
                   style={{
                     fontSize: '14px',

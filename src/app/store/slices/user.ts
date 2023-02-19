@@ -5,7 +5,7 @@ export interface User {
   avatar?: string,
   username: string,
   password: string,
-  recados: string[]
+  messages: string[]
 }
 
 interface State {
