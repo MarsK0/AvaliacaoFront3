@@ -16,3 +16,29 @@ export const Wrapper = styled.div`
     width: 100%;
   }
 `
+
+export const StyledButton = styled.button`
+position:relative;
+width: 45%;
+min-width: 175px;
+height: 30px;
+font-size: 1em;
+color: #0000ff;
+cursor: pointer;
+text-decoration: none;
+border: none;
+border-radius: 1rem;
+background: none;
+padding: .25rem;
+box-shadow: 0 0 5px 2px #0000ff;
+transition: .2s linear;
+
+@media (max-width: 500px) {
+  width: 45%;
+}
+
+&:hover{
+  background: #0000ff;
+  color: #333333;
+}
+`

@@ -1,4 +1,4 @@
-import { MessageH3, TipContainer, StyledMessage, Tip, Wrapper, MessageDescription } from "./style"
+import { MessageH3, TipContainer, StyledMessage, Tip, Wrapper, MessageDescription, EditButton, DeleteButton, ButtonWrapper } from "./style"
 
 const Message: React.FC = () => {
   return (
@@ -14,6 +14,10 @@ const Message: React.FC = () => {
             </MessageDescription>
             <Tip>TESTE</Tip>
           </TipContainer>
+          <ButtonWrapper>
+            <EditButton>Editar</EditButton>
+            <DeleteButton>Excluir</DeleteButton>
+          </ButtonWrapper>
         </StyledMessage>
     </Wrapper>
   )

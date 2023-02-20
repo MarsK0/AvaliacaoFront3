@@ -92,12 +92,67 @@ export const MessageH3 = styled.h3`
   white-space: nowrap;
   overflow: hidden;
   width: 100%;
+  margin-bottom: 5px;
 `
-
 export const MessageDescription = styled.p`
     display: -webkit-box;
     width: 100%;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    margin-bottom: 15px;
+`
+export const EditButton = styled.button`
+position:relative;
+width: 45%;
+height: 30px;
+font-size: 1em;
+color: #0000ff;
+cursor: pointer;
+text-decoration: none;
+border: none;
+border-radius: 1rem;
+background: none;
+padding: .25rem;
+box-shadow: 0 0 5px 2px #0000ff;
+transition: .2s linear;
+
+@media (max-width: 500px) {
+  width: 45%;
+}
+
+&:hover{
+  background: #0000ff;
+  color: #333333;
+}
+`
+export const DeleteButton = styled.button`
+position:relative;
+width: 45%;
+height: 30px;
+font-size: 1em;
+color: #ff0000;
+cursor: pointer;
+text-decoration: none;
+border: none;
+border-radius: 1rem;
+background: none;
+padding: .25rem;
+box-shadow: 0 0 5px 2px #ff0000;
+transition: .2s linear;
+
+@media (max-width: 500px) {
+  width: 45%;
+}
+
+&:hover{
+  background: #ff0000;
+  color: #333333;
+}
+`
+export const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 `
