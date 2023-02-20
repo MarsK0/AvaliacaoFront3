@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import NeonButton from "../NeonButton/NeonButton"
 
-const SignupForm: React.FC = () => {
+const ProfileForm: React.FC = () => {
 
   const {
     register,
@@ -58,4 +58,4 @@ const SignupForm: React.FC = () => {
   )
 }
 
-export default SignupForm
+export default ProfileForm

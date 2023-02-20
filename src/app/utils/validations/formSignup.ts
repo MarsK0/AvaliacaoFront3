@@ -14,10 +14,6 @@ export const FormSignup = z
       .transform(val => val.toLowerCase())
       .refine( val => val.indexOf(" ") === -1,
         {message: "Nome de usuário não deve conter espaços!"}),
-    avatar: optionalInput(z
-      .string()
-      .url(),
-    ),
     password: z
       .string()
       .min(4,
