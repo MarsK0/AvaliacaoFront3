@@ -1,21 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-export interface User {
-  id?: number,
-  username: string,
-  password: string,
-  messages: string[]
-}
-
-interface State {
-  newUserId: number,
-  users: Array<User>
-}
+import { UserState } from "../../utils/types/user";
 
 const initialState = {
   newUserId: 1,
   users: []
-} as State
+} as UserState
 
 const userSlice = createSlice({
   name: 'user',

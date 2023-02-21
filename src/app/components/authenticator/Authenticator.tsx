@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { AppState } from "../../store/reducersRoot";
-import { LoggedUser } from "../../store/slices/auth";
+import { LoggedUser } from "../../utils/types/auth";
 
 interface Props{
   page: ReactElement
