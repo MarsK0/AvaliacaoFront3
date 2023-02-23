@@ -125,3 +125,27 @@ export const Error = styled.p`
   margin-top: .5rem;
   color: #ff0000;
 `
+
+export const StyledButton = styled.button`
+
+    position:relative;
+    width: 40%;
+    height: 2.25rem;
+    margin-top: 1rem;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    border-radius: 1rem;
+    background: none;
+    padding: .25rem;
+    box-shadow: 0 0 5px .15rem #fff, 0 0 5px .15rem #fff inset;
+    transition: .2s linear;
+
+    &:hover{
+      background: #fff;
+      color: #333333;
+    }
+`

@@ -1,12 +1,19 @@
-import { StyledForm, Wrapper, StyledH2, Error } from "./style"
+import { StyledForm, Wrapper, StyledH2, Error, StyledButton } from "./style"
 import { StyledInput, StyledSpan, InputWrapper } from '../FormInput/style'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { TFormLogin, FormLogin } from "../../utils/validations/formLogin"
-import NeonButton from "../NeonButton/NeonButton"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
+import { useDispatch, useSelector } from "react-redux"
+import { AppState } from "../../store/reducersRoot"
+import { Auth } from "../../utils/types/auth"
+import { login } from "../../store/slices/auth"
 
 const SigninForm: React.FC = () => {
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const userList = useSelector((state: AppState) => state.userList.users)
 
   const {
     register,
@@ -16,10 +23,27 @@ const SigninForm: React.FC = () => {
     resolver: zodResolver(FormLogin)
   })
 
+  function handleLogin({username, password}: TFormLogin){
+    const user = userList.find( (user) => username === user.username && password === user.password)
+
+    if(user){
+      const authUser: Auth = {
+        id: user.id,
+        username,
+        messages: user.messages
+      }
+      dispatch(login(authUser))
+      navigate('/')
+    }
+    else{
+      alert('Combinação de usuário e senha inválida!')
+    }
+  }
+
   return(
     <>
         <Wrapper>
-          <StyledForm onSubmit={handleSubmit(()=>{})} autoComplete="off">
+          <StyledForm onSubmit={handleSubmit(handleLogin)} autoComplete="off">
             <StyledH2>Entrar</StyledH2>
             <InputWrapper style={{marginTop: '1rem'}}>
               <StyledInput type="text"
@@ -36,10 +60,7 @@ const SigninForm: React.FC = () => {
               <StyledSpan>{'Senha'}</StyledSpan>
             </InputWrapper>
             {errors.password?.message && <Error>{errors.password?.message}</Error>}
-            <NeonButton color="#fff" 
-                        text="Entrar"
-                        mt="1rem"
-                        width="40%"/>
+            <StyledButton>Entrar</StyledButton>
             <Link to={'/signup'}
                   style={{
                     fontSize: '14px',
