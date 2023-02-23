@@ -63,11 +63,13 @@ export const StyledMessage = styled.div`
     opacity: 0.90;
   }
 `
+
 export const Wrapper = styled.div`
   width: 20%;
   min-width: 250px;
   aspect-ratio: 1/1;
 `
+
 export const Tip = styled.p`
   visibility: hidden;
   width: 100%;
@@ -79,6 +81,7 @@ export const Tip = styled.p`
   position: absolute;
   z-index: 1;
 `
+
 export const TipContainer = styled.div`
   position: relative;
   display: inline-block;
@@ -87,6 +90,7 @@ export const TipContainer = styled.div`
     visibility: visible;
   }
 `
+
 export const MessageH3 = styled.h3`
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -94,6 +98,7 @@ export const MessageH3 = styled.h3`
   width: 100%;
   margin-bottom: 5px;
 `
+
 export const MessageDescription = styled.p`
     display: -webkit-box;
     width: 100%;
@@ -102,6 +107,7 @@ export const MessageDescription = styled.p`
     overflow: hidden;
     margin-bottom: 15px;
 `
+
 export const EditButton = styled.button`
 position:relative;
 width: 45%;
@@ -126,6 +132,7 @@ transition: .2s linear;
   color: #333333;
 }
 `
+
 export const DeleteButton = styled.button`
 position:relative;
 width: 45%;
@@ -150,6 +157,7 @@ transition: .2s linear;
   color: #333333;
 }
 `
+
 export const ButtonWrapper = styled.div`
   width: 100%;
   display: flex;
