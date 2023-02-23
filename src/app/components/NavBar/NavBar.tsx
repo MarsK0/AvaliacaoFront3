@@ -1,13 +1,13 @@
 import { Wrapper, StyledNavBar } from "./style"
 import MessageManager from "../MessageManager/MessageManager"
-import ProfileManager from "../ProfileManager/ProfileManager"
+import LogoutIcon from "../LogoutIcon/LogoutIcon"
 
 const NavBar: React.FC = () => {
   return(
     <Wrapper>
       <StyledNavBar>
         <MessageManager />
-        <ProfileManager />
+        <LogoutIcon />
       </StyledNavBar>
     </Wrapper>
   )
