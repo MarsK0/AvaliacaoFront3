@@ -98,6 +98,10 @@ export const StyledInput = styled.input`
   background-color: #333333;
   color: #fff;
   color-scheme: dark;
+
+  &::{
+    display: none;
+  }
 `
 
 export const StyledSpan = styled.span`
@@ -224,6 +228,7 @@ export const StyledTextArea = styled.textarea`
 
 export const ButtonWrapper = styled.div`
   width: 85%;
+  margin-top: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -277,4 +282,10 @@ transition: .2s linear;
   background: #ff0000;
   color: #333333;
 }
+`
+
+export const Error = styled.p`
+  font-size: 10px;
+  margin-top: .5rem;
+  color: #ff0000;
 `
