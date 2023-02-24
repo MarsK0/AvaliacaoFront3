@@ -5,9 +5,13 @@ export const StyledH1 = styled.h1`
   top: 0;
   font-size: 3em;
   text-align: center;
-  margin: 2rem;
+  margin: 2rem 0;
   filter: blur(px);
   animation: animateSignupH1 5s linear infinite;
+
+  @media (max-width: 500px){
+    font-size: 2.5em;
+  }
 
   @keyframes animateSignupH1 {
     0%{
