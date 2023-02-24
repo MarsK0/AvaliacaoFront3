@@ -1,13 +1,17 @@
-import styled from "styled-components"
+import { Dispatch, SetStateAction } from "react"
 import SearchBar from "../SearchBar/SearchBar"
 import { Wrapper, StyledButton } from "./style"
 
-const MessageManager: React.FC = () => {
+interface Props{
+  setMessageModalOpen: Dispatch<SetStateAction<boolean>>,
+}
+
+const MessageManager: React.FC<Props> = ({setMessageModalOpen}) => {
 
   return(
     <Wrapper>
       <SearchBar />
-      <StyledButton>Novo Recado</StyledButton>
+      <StyledButton onClick={() => setMessageModalOpen(true)}>Novo Recado</StyledButton>
     </Wrapper>
   )
 }

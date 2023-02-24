@@ -1,7 +1,7 @@
 import { ContainerHome, ContainerMessages } from "../../components/Containers/style"
 import NavBar from "../../components/NavBar/NavBar"
 import Message from "../../components/Message/Message"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import MessageModal from "../../components/MessageModal/MessageModal"
 
 const Home: React.FC = () => {
@@ -10,8 +10,9 @@ const Home: React.FC = () => {
 
   return (
     <ContainerHome>
-      <MessageModal modalIsOpen={messageModalOpen} />
-      <NavBar />
+      <MessageModal modalIsOpen={messageModalOpen}
+                    setMessageModalOpen={setMessageModalOpen}/>
+      <NavBar setMessageModalOpen={setMessageModalOpen}/>
       <ContainerMessages>
         <Message />
       </ContainerMessages>

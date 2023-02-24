@@ -2,13 +2,16 @@ import { InputWrapper, StaticBackground, StyledForm, StyledInput, StyledSpan, Wr
 import { TFormMessage, FormMessage } from "../../utils/validations/formMessage"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
+import { Dispatch, SetStateAction, useEffect } from "react"
+import mod from "zod/lib"
 
 
 interface Props{
-  modalIsOpen: boolean
+  modalIsOpen: boolean,
+  setMessageModalOpen: Dispatch<SetStateAction<boolean>>,
 }
 
-const MessageModal: React.FC<Props> = ({modalIsOpen}) =>{
+const MessageModal: React.FC<Props> = ({modalIsOpen, setMessageModalOpen}) =>{
 
   const {
     register,
@@ -19,10 +22,10 @@ const MessageModal: React.FC<Props> = ({modalIsOpen}) =>{
   })
 
   function handleMessage({datetime, title, description}: TFormMessage){
-    console.log(datetime.length)
+
   }
 
-  if(true){
+  if(modalIsOpen){
     return(
       <StaticBackground>
         <Wrapper>
@@ -47,7 +50,8 @@ const MessageModal: React.FC<Props> = ({modalIsOpen}) =>{
             {errors.description?.message && <Error>{errors.description?.message}</Error>}
             <ButtonWrapper>
               <SaveButton type="submit">Salvar</SaveButton>
-              <CancelButton type="button">Cancelar</CancelButton>
+              <CancelButton type="button"
+                            onClick={()=> setMessageModalOpen(false)}>Cancelar</CancelButton>
             </ButtonWrapper>
           </StyledForm>
         </Wrapper>
