@@ -1,10 +1,15 @@
 import { ContainerHome, ContainerMessages } from "../../components/Containers/style"
 import NavBar from "../../components/NavBar/NavBar"
-import Message from "../../components/Message/Message"
-import { useEffect, useState } from "react"
+import MessageCard from "../../components/MessageCard/MessageCard"
+import { useState } from "react"
 import MessageModal from "../../components/MessageModal/MessageModal"
+import { useSelector } from "react-redux"
+import { AppState } from "../../store/reducersRoot"
 
 const Home: React.FC = () => {
+
+  const loggedUser = useSelector((state: AppState) => state.authentication.user)
+  const userMessages = loggedUser?.messages
 
   const [messageModalOpen, setMessageModalOpen] = useState(false)
 
@@ -14,7 +19,15 @@ const Home: React.FC = () => {
                     setMessageModalOpen={setMessageModalOpen}/>
       <NavBar setMessageModalOpen={setMessageModalOpen}/>
       <ContainerMessages>
-        <Message />
+        <>
+          {userMessages &&
+            userMessages!.map((message, messageIndex)=>{
+              <MessageCard key={messageIndex}
+                           message={message}
+                           messageIndex={messageIndex} />
+            }
+          )}
+        </>
       </ContainerMessages>
     </ContainerHome>
   )
