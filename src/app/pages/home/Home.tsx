@@ -12,16 +12,19 @@ const Home: React.FC = () => {
   const userMessages = loggedUser?.messages
 
   const [messageModalOpen, setMessageModalOpen] = useState(false)
+  const [messageAction, setMessageAction] = useState<'criar' | 'editar' | undefined>(undefined)
 
   return (
     <ContainerHome>
       <MessageModal modalIsOpen={messageModalOpen}
-                    setMessageModalOpen={setMessageModalOpen}/>
+                    setMessageModalOpen={setMessageModalOpen}
+                    messageAction={messageAction}
+                    setMessageAction={setMessageAction}/>
       <NavBar setMessageModalOpen={setMessageModalOpen}/>
       <ContainerMessages>
         <>
           {userMessages &&
-            userMessages!.map((message, messageIndex)=>{
+            userMessages.map((message, messageIndex)=>{
               <MessageCard key={messageIndex}
                            message={message}
                            messageIndex={messageIndex} />

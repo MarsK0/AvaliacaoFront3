@@ -2,13 +2,14 @@ import { InputWrapper, StaticBackground, StyledForm, StyledInput, StyledSpan, Wr
 import { TFormMessage, FormMessage } from "../../utils/validations/formMessage"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { Dispatch, SetStateAction, useEffect } from "react"
-import mod from "zod/lib"
+import { Dispatch, SetStateAction } from "react"
 
 
 interface Props{
   modalIsOpen: boolean,
   setMessageModalOpen: Dispatch<SetStateAction<boolean>>,
+  messageAction?: 'criar' | 'editar' | undefined
+  setMessageAction: Dispatch<SetStateAction<"criar" | "editar" | undefined>>
 }
 
 const MessageModal: React.FC<Props> = ({modalIsOpen, setMessageModalOpen}) =>{
@@ -22,7 +23,7 @@ const MessageModal: React.FC<Props> = ({modalIsOpen, setMessageModalOpen}) =>{
   })
 
   function handleMessage({datetime, title, description}: TFormMessage){
-
+    
   }
 
   if(modalIsOpen){
