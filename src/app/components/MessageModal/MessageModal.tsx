@@ -2,17 +2,33 @@ import { InputWrapper, StaticBackground, StyledForm, StyledInput, StyledSpan, Wr
 import { TFormMessage, FormMessage } from "../../utils/validations/formMessage"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { Dispatch, SetStateAction } from "react"
+import { Dispatch, SetStateAction, useEffect } from "react"
+import { useDispatch } from "react-redux"
+import { addMessage } from "../../store/slices/user"
+import { ManageMessage, Message } from "../../utils/types/user"
+import { useSelector } from "react-redux"
+import { AppState } from "../../store/reducersRoot"
+
 
 
 interface Props{
   modalIsOpen: boolean,
   setMessageModalOpen: Dispatch<SetStateAction<boolean>>,
   messageAction?: 'criar' | 'editar' | undefined
-  setMessageAction: Dispatch<SetStateAction<"criar" | "editar" | undefined>>
+  setMessageAction: Dispatch<SetStateAction<"criar" | "editar" | undefined>>,
+  activeMessage: Message | undefined,
+  setActiveMessage: Dispatch<SetStateAction<Message | undefined>>
 }
 
-const MessageModal: React.FC<Props> = ({modalIsOpen, setMessageModalOpen}) =>{
+const MessageModal: React.FC<Props> = ({modalIsOpen, 
+                                        setMessageModalOpen, 
+                                        messageAction, 
+                                        setMessageAction,
+                                        activeMessage,
+                                        setActiveMessage}) =>{
+
+  const dispatch = useDispatch()
+  const loggedUser = useSelector((state:AppState) => state.authentication.user!)
 
   const {
     register,
@@ -23,7 +39,20 @@ const MessageModal: React.FC<Props> = ({modalIsOpen, setMessageModalOpen}) =>{
   })
 
   function handleMessage({datetime, title, description}: TFormMessage){
-    
+    const message: ManageMessage = {
+      loggedUser,
+      message: {
+        time: datetime,
+        title,
+        description
+      }
+    }
+
+    if(messageAction! === 'criar'){
+      dispatch(addMessage(message))
+      setMessageAction(undefined)
+      setMessageModalOpen(false)
+    }
   }
 
   if(modalIsOpen){
@@ -32,19 +61,22 @@ const MessageModal: React.FC<Props> = ({modalIsOpen, setMessageModalOpen}) =>{
         <Wrapper>
           <StyledForm noValidate onSubmit={handleSubmit(handleMessage)}>
             <InputWrapper style={{marginTop: '1.5rem'}}>
-              <StyledInput type="datetime-local"
+              <StyledInput  value={activeMessage ? activeMessage.time : undefined}
+                            type="datetime-local"
                            {...register('datetime')}/>
             </InputWrapper>
             {errors.datetime?.message && <Error>{errors.datetime?.message}</Error>}
             <InputWrapper style={{marginTop: '1.5rem'}}>
-              <StyledInput type="text"
+              <StyledInput value={activeMessage ? activeMessage.title : undefined}
+                           type="text"
                            placeholder=" "
                            {...register('title')}/>
               <StyledSpan>Título</StyledSpan>
             </InputWrapper>
             {errors.title?.message && <Error>{errors.title?.message}</Error>}
             <InputWrapper style={{marginTop: '1.5rem'}}>
-              <StyledTextArea placeholder="Descrição"
+              <StyledTextArea value={activeMessage ? activeMessage.description : undefined}
+                              placeholder="Descrição"
                               rows={7}
                               {...register('description')}/>
             </InputWrapper>

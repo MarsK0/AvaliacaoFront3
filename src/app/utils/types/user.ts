@@ -1,7 +1,14 @@
+import { Auth } from "./auth";
+
 export interface Message{
   time: string;
   title: string;
   description: string;
+}
+
+export interface ManageMessage{
+  loggedUser: Auth,
+  message: Message
 }
 
 export interface User {

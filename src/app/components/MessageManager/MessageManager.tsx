@@ -4,14 +4,21 @@ import { Wrapper, StyledButton } from "./style"
 
 interface Props{
   setMessageModalOpen: Dispatch<SetStateAction<boolean>>,
+  messageAction:  'criar' | 'editar' | undefined,
+  setMessageAction: Dispatch<React.SetStateAction<"criar" | "editar" | undefined>>
 }
 
-const MessageManager: React.FC<Props> = ({setMessageModalOpen}) => {
+const MessageManager: React.FC<Props> = ({setMessageModalOpen, setMessageAction}) => {
+
+  function handleNewMessage(){
+    setMessageAction('criar')
+    setMessageModalOpen(true)
+  }
 
   return(
     <Wrapper>
       <SearchBar />
-      <StyledButton onClick={() => setMessageModalOpen(true)}>Novo Recado</StyledButton>
+      <StyledButton onClick={handleNewMessage}>Novo Recado</StyledButton>
     </Wrapper>
   )
 }

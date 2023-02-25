@@ -29,7 +29,8 @@ export const ContainerMessages = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content:space-around;
+  justify-content: center;
+  column-gap: 3.5rem;
   row-gap: 2rem;
   background-color: #1c1c1c;
 `
