@@ -1,9 +1,15 @@
+import { Dispatch, SetStateAction } from "react"
 import { StyledSearchBar, InputWrapper, StyledSpan } from "./style"
 
-const SearchBar: React.FC = () => {
+interface Props{
+  setSearchFilter: Dispatch<SetStateAction<string>>
+}
+
+const SearchBar: React.FC<Props> = ({setSearchFilter}) => {
   return (
     <InputWrapper>
-      <StyledSearchBar placeholder=" "/>
+      <StyledSearchBar onChange={event => setSearchFilter(event.target.value)}
+                       placeholder=" "/>
       <StyledSpan>Buscar recado...</StyledSpan>
     </InputWrapper>
   )

@@ -1,9 +1,14 @@
 import { Auth } from "./auth";
 
 export interface Message{
-  time: string;
-  title: string;
-  description: string;
+  time: string,
+  title: string,
+  description: string,
+}
+
+export interface IdentifiedMessage extends Message{
+  loggedUser: Auth,
+  index: number
 }
 
 export interface ManageMessage{

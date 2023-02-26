@@ -2,10 +2,10 @@ import { InputWrapper, StaticBackground, StyledForm, StyledInput, StyledSpan, Wr
 import { TFormMessage, FormMessage } from "../../utils/validations/formMessage"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { Dispatch, SetStateAction, useEffect } from "react"
+import { Dispatch, SetStateAction } from "react"
 import { useDispatch } from "react-redux"
-import { addMessage } from "../../store/slices/user"
-import { ManageMessage, Message } from "../../utils/types/user"
+import { addMessage, editMessage } from "../../store/slices/user"
+import { IdentifiedMessage, ManageMessage } from "../../utils/types/user"
 import { useSelector } from "react-redux"
 import { AppState } from "../../store/reducersRoot"
 
@@ -14,10 +14,10 @@ import { AppState } from "../../store/reducersRoot"
 interface Props{
   modalIsOpen: boolean,
   setMessageModalOpen: Dispatch<SetStateAction<boolean>>,
-  messageAction?: 'criar' | 'editar' | undefined
-  setMessageAction: Dispatch<SetStateAction<"criar" | "editar" | undefined>>,
-  activeMessage: Message | undefined,
-  setActiveMessage: Dispatch<SetStateAction<Message | undefined>>
+  messageAction: 'create' | 'edit' | undefined
+  setMessageAction: Dispatch<SetStateAction<"create" | "edit" | undefined>>,
+  activeMessage: IdentifiedMessage | undefined,
+  setActiveMessage: Dispatch<SetStateAction<IdentifiedMessage | undefined>>
 }
 
 const MessageModal: React.FC<Props> = ({modalIsOpen, 
@@ -48,48 +48,64 @@ const MessageModal: React.FC<Props> = ({modalIsOpen,
       }
     }
 
-    if(messageAction! === 'criar'){
+    if(messageAction! === 'create'){
       dispatch(addMessage(message))
+      setMessageAction(undefined)
+      setMessageModalOpen(false)
+    }
+    else if(messageAction! === 'edit'){
+      const editedMessage: IdentifiedMessage = {
+        loggedUser,
+        index: activeMessage!.index,
+        time: datetime,
+        title: title,
+        description: description
+      }
+
+      dispatch(editMessage(editedMessage))
       setMessageAction(undefined)
       setMessageModalOpen(false)
     }
   }
 
+  function handleClose(){
+    setMessageAction(undefined)
+    setActiveMessage(undefined)
+    setMessageModalOpen(false)
+  }
+
   if(modalIsOpen){
-    return(
-      <StaticBackground>
-        <Wrapper>
-          <StyledForm noValidate onSubmit={handleSubmit(handleMessage)}>
-            <InputWrapper style={{marginTop: '1.5rem'}}>
-              <StyledInput  value={activeMessage ? activeMessage.time : undefined}
-                            type="datetime-local"
-                           {...register('datetime')}/>
-            </InputWrapper>
-            {errors.datetime?.message && <Error>{errors.datetime?.message}</Error>}
-            <InputWrapper style={{marginTop: '1.5rem'}}>
-              <StyledInput value={activeMessage ? activeMessage.title : undefined}
-                           type="text"
-                           placeholder=" "
-                           {...register('title')}/>
-              <StyledSpan>Título</StyledSpan>
-            </InputWrapper>
-            {errors.title?.message && <Error>{errors.title?.message}</Error>}
-            <InputWrapper style={{marginTop: '1.5rem'}}>
-              <StyledTextArea value={activeMessage ? activeMessage.description : undefined}
-                              placeholder="Descrição"
-                              rows={7}
-                              {...register('description')}/>
-            </InputWrapper>
-            {errors.description?.message && <Error>{errors.description?.message}</Error>}
-            <ButtonWrapper>
-              <SaveButton type="submit">Salvar</SaveButton>
-              <CancelButton type="button"
-                            onClick={()=> setMessageModalOpen(false)}>Cancelar</CancelButton>
-            </ButtonWrapper>
-          </StyledForm>
-        </Wrapper>
-      </StaticBackground>
-    )
+      return(
+        <StaticBackground>
+          <Wrapper>
+            <StyledForm noValidate onSubmit={handleSubmit(handleMessage)}>
+              <InputWrapper style={{marginTop: '1.5rem'}}>
+                <StyledInput type="datetime-local"
+                             {...register('datetime')}/>
+              </InputWrapper>
+              {errors.datetime?.message && <Error>{errors.datetime?.message}</Error>}
+              <InputWrapper style={{marginTop: '1.5rem'}}>
+                <StyledInput type="text"
+                             placeholder=" "
+                             {...register('title')}/>
+                <StyledSpan>Título</StyledSpan>
+              </InputWrapper>
+              {errors.title?.message && <Error>{errors.title?.message}</Error>}
+              <InputWrapper style={{marginTop: '1.5rem'}}>
+                <StyledTextArea placeholder="Descrição"
+                                rows={7}
+                                {...register('description')}/>
+              </InputWrapper>
+              {errors.description?.message && <Error>{errors.description?.message}</Error>}
+              <ButtonWrapper>
+                <SaveButton type="submit">Salvar</SaveButton>
+                <CancelButton type="reset"
+                              onClick={handleClose}>Cancelar</CancelButton>
+              </ButtonWrapper>
+            </StyledForm>
+          </Wrapper>
+        </StaticBackground>
+      )
   }
 
   return null
