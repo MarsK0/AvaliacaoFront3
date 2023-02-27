@@ -68,6 +68,7 @@ export const Wrapper = styled.div`
   width: 20%;
   min-width: 250px;
   aspect-ratio: 1/1;
+  margin: 0 1.25rem;
 `
 
 export const Tip = styled.p`
